@@ -1,0 +1,19 @@
+// Заголовки, общие БЄМ блоки и проче...
+.title {
+  font-family: "IgraSans";
+  font-weight: 400;
+}
+
+h1 {
+  @include adaptiveValue("font-size",98,35,992,320);
+  line-height: 1.22;
+  @media (min-width:$tablet){
+    font-size: rem(98);
+  }
+}
+
+h2 {
+  font-weight: 400;
+  font-size: rem(42);
+  line-height: 1;
+}
