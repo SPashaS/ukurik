@@ -414,7 +414,7 @@
       P
     );
   }
-  function O(e = {}) {
+  function I(e = {}) {
     return (
       L ||
         (L = (function ({ userAgent: e } = {}) {
@@ -460,7 +460,7 @@
       L
     );
   }
-  function I() {
+  function O() {
     return (
       A ||
         (A = (function () {
@@ -2555,8 +2555,8 @@
       const r = this;
       (r.__swiper__ = !0),
         (r.support = k()),
-        (r.device = O({ userAgent: s.userAgent })),
-        (r.browser = I()),
+        (r.device = I({ userAgent: s.userAgent })),
+        (r.browser = O()),
         (r.eventsListeners = {}),
         (r.eventsAnyListeners = []),
         (r.modules = [...r.__modules__]),
@@ -3539,22 +3539,14 @@
           centeredSlides: !0,
           slidesPerView: "auto",
           effect: "coverflow",
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 150,
-            depth: 100,
-            modifier: 1,
-            slideShadows: !1,
-            scale: 1,
-          },
-          observer: !0,
-          observeParents: !0,
-          spaceBetween: 0,
-          autoHeight: !0,
+          coverflowEffect: { rotate: 15, stretch: 600, depth: 500 },
           speed: 800,
+          simulateTouch: !1,
+          normalizeSlideIndex: !0,
+          centeredSlides: !0,
           navigation: {
-            nextEl: ".carousel__navigation .carousel__btn_prev",
-            prevEl: ".carousel__navigation .carousel__btn_next",
+            nextEl: ".carousel__navigation .carousel__btn_next",
+            prevEl: ".carousel__navigation .carousel__btn_prev",
           },
           on: {},
         });
