@@ -366,7 +366,7 @@
   function T(e, t) {
     return p().getComputedStyle(e, null).getPropertyValue(t);
   }
-  function x(e) {
+  function E(e) {
     let t,
       s = e;
     if (s) {
@@ -375,7 +375,7 @@
       return t;
     }
   }
-  function E(e, t, s) {
+  function x(e, t, s) {
     const i = p();
     return s
       ? e["width" === t ? "offsetWidth" : "offsetHeight"] +
@@ -391,7 +391,7 @@
           )
       : e.offsetWidth;
   }
-  let M, C, P;
+  let M, P, C;
   function L() {
     return (
       M ||
@@ -414,8 +414,8 @@
   }
   function A(e = {}) {
     return (
-      C ||
-        (C = (function ({ userAgent: e } = {}) {
+      P ||
+        (P = (function ({ userAgent: e } = {}) {
           const t = L(),
             s = p(),
             i = s.navigator.platform,
@@ -455,13 +455,13 @@
             a
           );
         })(e)),
-      C
+      P
     );
   }
   function k() {
     return (
-      P ||
-        (P = (function () {
+      C ||
+        (C = (function () {
           const e = p();
           let t = !1;
           function s() {
@@ -491,7 +491,7 @@
             ),
           };
         })()),
-      P
+      C
     );
   }
   const O = {
@@ -683,15 +683,15 @@
       "function" == typeof w && (w = i.slidesOffsetAfter.call(e));
       const b = e.snapGrid.length,
         y = e.slidesGrid.length;
-      let x = i.spaceBetween,
+      let E = i.spaceBetween,
         M = -v,
-        C = 0,
-        P = 0;
+        P = 0,
+        C = 0;
       if (void 0 === n) return;
-      "string" == typeof x && x.indexOf("%") >= 0
-        ? (x = (parseFloat(x.replace("%", "")) / 100) * n)
-        : "string" == typeof x && (x = parseFloat(x)),
-        (e.virtualSize = -x),
+      "string" == typeof E && E.indexOf("%") >= 0
+        ? (E = (parseFloat(E.replace("%", "")) / 100) * n)
+        : "string" == typeof E && (E = parseFloat(E)),
+        (e.virtualSize = -E),
         p.forEach((e) => {
           o ? (e.style.marginLeft = "") : (e.style.marginRight = ""),
             (e.style.marginBottom = ""),
@@ -728,7 +728,7 @@
               l && (a.style.webkitTransform = "none"),
               i.roundLengths)
             )
-              A = e.isHorizontal() ? E(a, "width", !0) : E(a, "height", !0);
+              A = e.isHorizontal() ? x(a, "width", !0) : x(a, "height", !0);
             else {
               const e = s(n, "width"),
                 t = s(n, "padding-left"),
@@ -746,28 +746,28 @@
               l && (a.style.webkitTransform = l),
               i.roundLengths && (A = Math.floor(A));
           } else
-            (A = (n - (i.slidesPerView - 1) * x) / i.slidesPerView),
+            (A = (n - (i.slidesPerView - 1) * E) / i.slidesPerView),
               i.roundLengths && (A = Math.floor(A)),
               p[r] && (p[r].style[t("width")] = `${A}px`);
           p[r] && (p[r].swiperSlideSize = A),
             h.push(A),
             i.centeredSlides
-              ? ((M = M + A / 2 + C / 2 + x),
-                0 === C && 0 !== r && (M = M - n / 2 - x),
-                0 === r && (M = M - n / 2 - x),
+              ? ((M = M + A / 2 + P / 2 + E),
+                0 === P && 0 !== r && (M = M - n / 2 - E),
+                0 === r && (M = M - n / 2 - E),
                 Math.abs(M) < 0.001 && (M = 0),
                 i.roundLengths && (M = Math.floor(M)),
-                P % i.slidesPerGroup == 0 && f.push(M),
+                C % i.slidesPerGroup == 0 && f.push(M),
                 m.push(M))
               : (i.roundLengths && (M = Math.floor(M)),
-                (P - Math.min(e.params.slidesPerGroupSkip, P)) %
+                (C - Math.min(e.params.slidesPerGroupSkip, C)) %
                   e.params.slidesPerGroup ==
                   0 && f.push(M),
                 m.push(M),
-                (M = M + A + x)),
-            (e.virtualSize += A + x),
-            (C = A),
-            (P += 1);
+                (M = M + A + E)),
+            (e.virtualSize += A + E),
+            (P = A),
+            (C += 1);
         }
       }
       if (
@@ -775,8 +775,8 @@
         o &&
           l &&
           ("slide" === i.effect || "coverflow" === i.effect) &&
-          (r.style.width = `${e.virtualSize + x}px`),
-        i.setWrapperSize && (r.style[t("width")] = `${e.virtualSize + x}px`),
+          (r.style.width = `${e.virtualSize + E}px`),
+        i.setWrapperSize && (r.style[t("width")] = `${e.virtualSize + E}px`),
         L && e.grid.updateWrapperSize(A, f, t),
         !i.centeredSlides)
       ) {
@@ -791,7 +791,7 @@
             f.push(e.virtualSize - n);
       }
       if (d && i.loop) {
-        const t = h[0] + x;
+        const t = h[0] + E;
         if (i.slidesPerGroup > 1) {
           const s = Math.ceil(
               (e.virtual.slidesBefore + e.virtual.slidesAfter) /
@@ -809,20 +809,20 @@
             m.push(m[m.length - 1] + t),
             (e.virtualSize += t);
       }
-      if ((0 === f.length && (f = [0]), 0 !== x)) {
+      if ((0 === f.length && (f = [0]), 0 !== E)) {
         const s = e.isHorizontal() && o ? "marginLeft" : t("marginRight");
         p.filter(
           (e, t) => !(i.cssMode && !i.loop) || t !== p.length - 1
         ).forEach((e) => {
-          e.style[s] = `${x}px`;
+          e.style[s] = `${E}px`;
         });
       }
       if (i.centeredSlides && i.centeredSlidesBounds) {
         let e = 0;
         h.forEach((t) => {
-          e += t + (x || 0);
+          e += t + (E || 0);
         }),
-          (e -= x);
+          (e -= E);
         const t = e - n;
         f = f.map((e) => (e < 0 ? -v : e > t ? t + w : e));
       }
@@ -830,9 +830,9 @@
         let e = 0;
         if (
           (h.forEach((t) => {
-            e += t + (x || 0);
+            e += t + (E || 0);
           }),
-          (e -= x),
+          (e -= E),
           e < n)
         ) {
           const t = (n - e) / 2;
@@ -1905,9 +1905,9 @@
       (i.isMoved = !0),
       (i.currentTranslate = g + i.startTranslate);
     let T = !0,
-      x = r.resistanceRatio;
+      E = r.resistanceRatio;
     if (
-      (r.touchReleaseOnEdges && (x = 0),
+      (r.touchReleaseOnEdges && (E = 0),
       g > 0
         ? (S &&
             !y &&
@@ -1926,7 +1926,7 @@
               (i.currentTranslate =
                 s.minTranslate() -
                 1 +
-                (-s.minTranslate() + i.startTranslate + g) ** x)))
+                (-s.minTranslate() + i.startTranslate + g) ** E)))
         : g < 0 &&
           (S &&
             !y &&
@@ -1949,7 +1949,7 @@
               (i.currentTranslate =
                 s.maxTranslate() +
                 1 -
-                (s.maxTranslate() - i.startTranslate - g) ** x))),
+                (s.maxTranslate() - i.startTranslate - g) ** E))),
       T && (l.preventedByNestedSwiper = !0),
       !s.allowSlideNext &&
         "next" === s.swipeDirection &&
@@ -2636,8 +2636,8 @@
     }
     getSlideIndex(e) {
       const { slidesEl: t, params: s } = this,
-        i = x(S(t, `.${s.slideClass}, swiper-slide`)[0]);
-      return x(e) - i;
+        i = E(S(t, `.${s.slideClass}, swiper-slide`)[0]);
+      return E(e) - i;
     }
     getSlideIndexByData(e) {
       return this.getSlideIndex(
@@ -3238,7 +3238,46 @@
       s
     );
   }
-  function ae(e, t, s) {
+  function ae({ swiper: e, duration: t, transformElements: s, allSlides: i }) {
+    const { activeIndex: r } = e;
+    if (e.params.virtualTranslate && 0 !== t) {
+      let t,
+        a = !1;
+      (t = i
+        ? s
+        : s.filter((t) => {
+            const s = t.classList.contains("swiper-slide-transform")
+              ? ((t) => {
+                  if (!t.parentElement)
+                    return e.slides.filter(
+                      (e) => e.shadowEl && e.shadowEl === t.parentNode
+                    )[0];
+                  return t.parentElement;
+                })(t)
+              : t;
+            return e.getSlideIndex(s) === r;
+          })),
+        t.forEach((t) => {
+          !(function (e, t) {
+            t &&
+              e.addEventListener("transitionend", function s(i) {
+                i.target === e &&
+                  (t.call(e, i), e.removeEventListener("transitionend", s));
+              });
+          })(t, () => {
+            if (a) return;
+            if (!e || e.destroyed) return;
+            (a = !0), (e.animating = !1);
+            const t = new window.CustomEvent("transitionend", {
+              bubbles: !0,
+              cancelable: !0,
+            });
+            e.wrapperEl.dispatchEvent(t);
+          });
+        });
+    }
+  }
+  function ne(e, t, s) {
     const i = "swiper-slide-shadow" + (s ? `-${s}` : ""),
       r = b(t);
     let a = r.querySelector(`.${i}`);
@@ -3249,17 +3288,18 @@
       a
     );
   }
-  function ne({ swiper: e, extendParams: t, on: s }) {
+  function oe({ swiper: e, extendParams: t, on: s }) {
     t({
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        scale: 1,
-        modifier: 1,
-        slideShadows: !0,
+      creativeEffect: {
+        limitProgress: 1,
+        shadowPerProgress: !1,
+        progressMultiplier: 1,
+        perspective: !0,
+        prev: { translate: [0, 0, 0], rotate: [0, 0, 0], opacity: 1, scale: 1 },
+        next: { translate: [0, 0, 0], rotate: [0, 0, 0], opacity: 1, scale: 1 },
       },
     });
+    const i = (e) => ("string" == typeof e ? e : `${e}px`);
     !(function (e) {
       const {
         effect: t,
@@ -3305,77 +3345,92 @@
             }));
         });
     })({
-      effect: "coverflow",
+      effect: "creative",
       swiper: e,
       on: s,
       setTranslate: () => {
-        const { width: t, height: s, slides: i, slidesSizesGrid: r } = e,
-          a = e.params.coverflowEffect,
-          n = e.isHorizontal(),
-          o = e.translate,
-          l = n ? t / 2 - o : s / 2 - o,
-          d = n ? a.rotate : -a.rotate,
-          c = a.depth;
-        for (let e = 0, t = i.length; e < t; e += 1) {
-          const t = i[e],
-            s = r[e],
-            o = (l - t.swiperSlideOffset - s / 2) / s,
-            p =
-              "function" == typeof a.modifier ? a.modifier(o) : o * a.modifier;
-          let u = n ? d * p : 0,
-            f = n ? 0 : d * p,
-            m = -c * Math.abs(p),
-            h = a.stretch;
-          "string" == typeof h &&
-            -1 !== h.indexOf("%") &&
-            (h = (parseFloat(a.stretch) / 100) * s);
-          let v = n ? 0 : h * p,
-            g = n ? h * p : 0,
-            w = 1 - (1 - a.scale) * Math.abs(p);
-          Math.abs(g) < 0.001 && (g = 0),
-            Math.abs(v) < 0.001 && (v = 0),
-            Math.abs(m) < 0.001 && (m = 0),
-            Math.abs(u) < 0.001 && (u = 0),
-            Math.abs(f) < 0.001 && (f = 0),
-            Math.abs(w) < 0.001 && (w = 0);
-          const b = `translate3d(${g}px,${v}px,${m}px)  rotateX(${f}deg) rotateY(${u}deg) scale(${w})`;
-          if (
-            ((re(0, t).style.transform = b),
-            (t.style.zIndex = 1 - Math.abs(Math.round(p))),
-            a.slideShadows)
-          ) {
-            let e = n
-                ? t.querySelector(".swiper-slide-shadow-left")
-                : t.querySelector(".swiper-slide-shadow-top"),
-              s = n
-                ? t.querySelector(".swiper-slide-shadow-right")
-                : t.querySelector(".swiper-slide-shadow-bottom");
-            e || (e = ae(0, t, n ? "left" : "top")),
-              s || (s = ae(0, t, n ? "right" : "bottom")),
-              e && (e.style.opacity = p > 0 ? p : 0),
-              s && (s.style.opacity = -p > 0 ? -p : 0);
+        const { slides: t, wrapperEl: s, slidesSizesGrid: r } = e,
+          a = e.params.creativeEffect,
+          { progressMultiplier: n } = a,
+          o = e.params.centeredSlides;
+        if (o) {
+          const t = r[0] / 2 - e.params.slidesOffsetBefore || 0;
+          s.style.transform = `translateX(calc(50% - ${t}px))`;
+        }
+        for (let s = 0; s < t.length; s += 1) {
+          const r = t[s],
+            l = r.progress,
+            d = Math.min(
+              Math.max(r.progress, -a.limitProgress),
+              a.limitProgress
+            );
+          let c = d;
+          o ||
+            (c = Math.min(
+              Math.max(r.originalProgress, -a.limitProgress),
+              a.limitProgress
+            ));
+          const p = r.swiperSlideOffset,
+            u = [e.params.cssMode ? -p - e.translate : -p, 0, 0],
+            f = [0, 0, 0];
+          let m = !1;
+          e.isHorizontal() || ((u[1] = u[0]), (u[0] = 0));
+          let h = {
+            translate: [0, 0, 0],
+            rotate: [0, 0, 0],
+            scale: 1,
+            opacity: 1,
+          };
+          d < 0 ? ((h = a.next), (m = !0)) : d > 0 && ((h = a.prev), (m = !0)),
+            u.forEach((e, t) => {
+              u[t] = `calc(${e}px + (${i(h.translate[t])} * ${Math.abs(
+                d * n
+              )}))`;
+            }),
+            f.forEach((e, t) => {
+              f[t] = h.rotate[t] * Math.abs(d * n);
+            }),
+            (r.style.zIndex = -Math.abs(Math.round(l)) + t.length);
+          const v = u.join(", "),
+            g = `rotateX(${f[0]}deg) rotateY(${f[1]}deg) rotateZ(${f[2]}deg)`,
+            w =
+              c < 0
+                ? `scale(${1 + (1 - h.scale) * c * n})`
+                : `scale(${1 - (1 - h.scale) * c * n})`,
+            b =
+              c < 0 ? 1 + (1 - h.opacity) * c * n : 1 - (1 - h.opacity) * c * n,
+            S = `translate3d(${v}) ${g} ${w}`;
+          if ((m && h.shadow) || !m) {
+            let e = r.querySelector(".swiper-slide-shadow");
+            if ((!e && h.shadow && (e = ne(0, r)), e)) {
+              const t = a.shadowPerProgress ? d * (1 / a.limitProgress) : d;
+              e.style.opacity = Math.min(Math.max(Math.abs(t), 0), 1);
+            }
           }
+          const y = re(0, r);
+          (y.style.transform = S),
+            (y.style.opacity = b),
+            h.origin && (y.style.transformOrigin = h.origin);
         }
       },
       setTransition: (t) => {
-        e.slides
-          .map((e) => b(e))
-          .forEach((e) => {
-            (e.style.transitionDuration = `${t}ms`),
-              e
-                .querySelectorAll(
-                  ".swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left"
-                )
-                .forEach((e) => {
-                  e.style.transitionDuration = `${t}ms`;
-                });
-          });
+        const s = e.slides.map((e) => b(e));
+        s.forEach((e) => {
+          (e.style.transitionDuration = `${t}ms`),
+            e.querySelectorAll(".swiper-slide-shadow").forEach((e) => {
+              e.style.transitionDuration = `${t}ms`;
+            });
+        }),
+          ae({ swiper: e, duration: t, transformElements: s, allSlides: !0 });
       },
-      perspective: () => !0,
-      overwriteParams: () => ({ watchSlidesProgress: !0 }),
+      perspective: () => e.params.creativeEffect.perspective,
+      overwriteParams: () => ({
+        watchSlidesProgress: !0,
+        virtualTranslate: !e.params.cssMode,
+      }),
     });
   }
-  function oe() {
+  function le() {
     let e = document.querySelectorAll(
       '[class*="__swiper"]:not(.swiper-wrapper)'
     );
@@ -3387,24 +3442,22 @@
       });
   }
   window.addEventListener("load", function (e) {
-    oe(),
+    le(),
       document.querySelector(".swiper") &&
         new se(".swiper", {
-          modules: [ie, ne],
-          grabCursor: !0,
-          centeredSlides: !0,
-          effect: "coverflow",
-          coverflowEffect: {
-            rotate: 0,
-            stretch: "85%",
-            depth: 500,
-            modifier: 1,
-          },
-          observer: !0,
-          observeParents: !0,
-          initialSlide: 1,
+          modules: [ie, oe],
           speed: 800,
-          simulateTouch: !1,
+          effect: "creative",
+          watchSlidesProgress: !0,
+          slidesPerView: "auto",
+          centeredSlides: !0,
+          loop: !0,
+          grabCursor: !0,
+          slideToClickedSlide: !0,
+          creativeEffect: {
+            prev: { shadow: !1, translate: ["-45%", 40, -500] },
+            next: { shadow: !1, translate: ["45%", 40, -500] },
+          },
           navigation: {
             nextEl: ".carousel__navigation .carousel__btn_next",
             prevEl: ".carousel__navigation .carousel__btn_prev",

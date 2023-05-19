@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230519113924">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="description" content="Укурик - Родина бурятских ремесленников">
@@ -17,9 +17,9 @@
 	<div class="wrapper">
 		<header class="header">
 			<div class="header__container">
-				<div class="header__logo">
+				<a class="header__logo" href="https://tuji.ru/about.html">
 					<img src="img/logo.svg" alt="Укурик">
-				</div>
+				</a>
 				<div class="header__menu menu">
 					<button type="button" class="menu__icon icon-menu" aria-label="Меню"><span class="icon-menu__burger"><span></span></span></button>
 					<nav class="menu__body">
@@ -46,15 +46,17 @@
 					<div class="creative-village__row">
 						<div class="creative-village__body">
 							<h2 class="creative-village__title title">Креативная деревня</h2>
-							<p class="creative-village__text">
-								23 апреля — Всемирный день книг и авторского права. А значит, и ещё одна
-								памятная дата, важная для Хабра, потому что он сам — и большая книга, и
-								книгохранилище, и собрание знаний и опыта сотен тысяч людей. Поэтому
-								очередной кураторский дайджест я решила посвятить Интернет-библиотекам и
-								цифровому авторскому праву: ещё раз пройтись по архивам и вспомнить о
-								доступности знаний (и научных знаний в первую очередь), о их регулярной
-								воспроизводимости и сохранности.
-							</p>
+							<div class="creative-village__text text">
+								<p>
+									23 апреля — Всемирный день книг и авторского права. А значит, и ещё одна
+									памятная дата, важная для Хабра, потому что он сам — и большая книга, и
+									книгохранилище, и собрание знаний и опыта сотен тысяч людей. Поэтому
+									очередной кураторский дайджест я решила посвятить Интернет-библиотекам и
+									цифровому авторскому праву: ещё раз пройтись по архивам и вспомнить о
+									доступности знаний (и научных знаний в первую очередь), о их регулярной
+									воспроизводимости и сохранности.
+								</p>
+							</div>
 						</div>
 						<div class="creative-village__image">
 							<picture><source srcset="img/creative-village.webp" type="image/webp"><img src="img/creative-village.jpg" alt="Креативная деревня"></picture>
@@ -123,9 +125,16 @@
 						</div>
 						<div class="monument__body">
 							<h2 class="monument__title title">Памятник скотоводам</h2>
-							<p class="monument__text">
-								Сегодня ни для кого не секрет, что централизованные сервисы постоянно собирают о нас как можно больше информации. Любое наше действие, передвижение, сообщение считывается как на аппаратном, так и на программном уровнях, словно мы находимся в антиутопичном мире киберпанка, где за всей нашей жизнью следит тысяча механизированных глаз. Результат такого исхода событий свидетельствует лишь о том факте, что он становится экономически выгоден, рационален, оправдан компаниями, производящими массовую слежку и добычу конфиденциальной информации.
-							</p>
+							<div class="monument__text text">
+								<p>
+									Сегодня ни для кого не секрет, что централизованные сервисы постоянно собирают о нас как можно больше
+									информации. Любое наше действие, передвижение, сообщение считывается как на аппаратном, так и на программном
+									уровнях, словно мы находимся в антиутопичном мире киберпанка, где за всей нашей жизнью следит тысяча
+									механизированных глаз. Результат такого исхода событий свидетельствует лишь о том факте, что он становится
+									экономически выгоден, рационален, оправдан компаниями, производящими массовую слежку и добычу
+									конфиденциальной информации.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -136,34 +145,72 @@
 
 					<div data-tabs class="chronology__tabs tabs">
 						<div data-tabs-body class="tabs__content">
+
 							<div class="tabs__body">
-								<h2 class="tabs__title title">Основание улуса</h2>
-								<p class="tabs__text">
-									Сегодня ни для кого не секрет, что централизованные сервисы постоянно собирают о нас как можно больше информации. Любое наше действие, передвижение, сообщение считывается как на аппаратном, так и на программном уровнях, словно мы находимся в антиутопичном мире киберпанка, где за всей нашей жизнью следит тысяча механизированных глаз.
-								</p>
+								<picture><source srcset="img/tabs.webp" type="image/webp"><img class="tabs__image" src="img/tabs.jpg" alt="Описание"></picture>
+								<div class="tabs__wrapper">
+									<div class="tabs__wrapper-item">
+										<h2 class="tabs__title title">Основание улуса</h2>
+										<div class="tabs__text text">
+											<p>
+												Сегодня ни для кого не секрет, что централизованные сервисы постоянно собирают о нас как можно
+												больше информации. Любое наше действие, передвижение, сообщение считывается как на аппаратном,
+												так и на программном уровнях, словно мы находимся в антиутопичном мире киберпанка, где за всей нашей
+												жизнью следит тысяча механизированных глаз.
+											</p>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<div class="tabs__body">
-								<h2 class="tabs__title title">1950</h2>
-								<p class="tabs__text">
-									1950 Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quisquam, ratione illum voluptate ab eligendi veniam possimus esse nobis, laborum enim corrupti animi nihil earum perferendis architecto ullam deserunt qui harum commodi delectus. Ad magnam, necessitatibus voluptatem quibusdam neque nostrum reiciendis. Id voluptatum iure tenetur, est blanditiis in, ut amet accusamus voluptatem dolore quas cum omnis aperiam dolor sequi deserunt cupiditate corporis repudiandae. Similique harum, commodi dolores beatae maxime sed!
-								</p>
+								<picture><source srcset="img/main.webp" type="image/webp"><img class="tabs__image" src="img/main.jpg" alt="Описание"></picture>
+								<div class="tabs__wrapper">
+									<div class="tabs__wrapper-item">
+										<h2 class="tabs__title title">1950</h2>
+										<div class="tabs__text text">
+											<p>
+												Сегодня ни для кого не секрет, что централизованные сервисы постоянно собирают о нас как можно
+												больше информации. Любое наше действие, передвижение, сообщение считывается как на аппаратном,
+												так и на программном уровнях
+											</p>
+											<p>
+												Cловно мы находимся в антиутопичном мире киберпанка, где за всей нашей
+												жизнью следит тысяча механизированных глаз.
+											</p>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<div class="tabs__body">
-								<h2 class="tabs__title title">1990</h2>
-								<p class="tabs__text">
-									1990 Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quisquam, ratione illum voluptate ab eligendi veniam possimus esse nobis, laborum enim corrupti animi nihil earum perferendis architecto ullam deserunt qui harum commodi delectus. Ad magnam, necessitatibus voluptatem quibusdam neque nostrum reiciendis. Id voluptatum iure tenetur, est blanditiis in, ut amet accusamus voluptatem dolore quas cum omnis aperiam dolor sequi deserunt cupiditate corporis repudiandae. Similique harum, commodi dolores beatae maxime sed!
-								</p>
+								<picture><source srcset="img/tabs.webp" type="image/webp"><img class="tabs__image" src="img/tabs.jpg" alt="Описание"></picture>
+								<div class="tabs__wrapper">
+									<div class="tabs__wrapper-item">
+										<h2 class="tabs__title title">1990</h2>
+										<div class="tabs__text text">
+											<p>
+												Сегодня ни для кого не секрет, что централизованные сервисы постоянно собирают о нас как можно
+												больше информации. Любое наше действие.
+											</p>
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<div class="tabs__body">
-								<h2 class="tabs__title title">2000</h2>
-								<p class="tabs__text">
-									2000 Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quisquam, ratione illum voluptate ab eligendi veniam possimus esse nobis, laborum enim corrupti animi nihil earum perferendis architecto ullam deserunt qui harum commodi delectus. Ad magnam, necessitatibus voluptatem quibusdam neque nostrum reiciendis. Id voluptatum iure tenetur, est blanditiis in, ut amet accusamus voluptatem dolore quas cum omnis aperiam dolor sequi deserunt cupiditate corporis repudiandae. Similique harum, commodi dolores beatae maxime sed!
-								</p>
+								<picture><source srcset="img/main.webp" type="image/webp"><img class="tabs__image" src="img/main.jpg" alt="Описание"></picture>
+								<div class="tabs__wrapper">
+									<div class="tabs__wrapper-item">
+										<h2 class="tabs__title title">2000</h2>
+										<div class="tabs__text text">
+											<p>
+												Сегодня ни для кого не секрет, что централизованные сервисы постоянно.
+											</p>
+										</div>
+									</div>
+								</div>
 							</div>
-
 						</div>
 
 						<div data-tabs-titles class="tabs__navigation">
@@ -188,15 +235,17 @@
 						</div>
 						<div class="visit-village__body">
 							<h2 class="visit-village__title title">Посетить деревню</h2>
-							<p class="visit-village__text">
-								Вопрос всего этого спектакля лежит лишь в плоскости того как именно
-								происходит сбор информации, как эта информация перераспределяется,
-								между кем она распределяется, как она приносит выгоду, и то как она
-								находит свою конечную цель - клиента системы. В итоге всего
-								вышеперечисленного, целью нашей работы будет являться выявление жизненного
-								цикла конфиденциальной информации пользователей в кругу централизованных
-								сервисов.
-							</p>
+							<div class="visit-village__text text">
+								<p>
+									Вопрос всего этого спектакля лежит лишь в плоскости того как именно
+									происходит сбор информации, как эта информация перераспределяется,
+									между кем она распределяется, как она приносит выгоду, и то как она
+									находит свою конечную цель - клиента системы. В итоге всего
+									вышеперечисленного, целью нашей работы будет являться выявление жизненного
+									цикла конфиденциальной информации пользователей в кругу централизованных
+									сервисов.
+								</p>
+							</div>
 							<a href="#" class="visit-village__button button">Забронировать</a>
 						</div>
 					</div>
@@ -277,7 +326,7 @@
 </div>
  -->
 
-	<script src="js/app.min.js?_v=20230519113924"></script>
+	<script src="js/app.js"></script>
 </body>
 
 </html>

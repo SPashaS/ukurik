@@ -240,6 +240,13 @@ h2 {
   }
 }
 
+.text p {
+  font-weight: 300;
+}
+.text p:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
 .header {
   position: absolute;
   top: 0.625rem;
@@ -662,66 +669,59 @@ h2 {
     width: 18.125rem;
   }
 }
+@media (min-width: 120em) {
+  .carousel__slider {
+    height: 48.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 120em) {
+  .carousel__slider {
+    height: clamp( 15rem , 8.3rem  +  33.5vw , 48.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .carousel__slider {
+    height: 15rem;
+  }
+}
+.carousel__swiper {
+  position: relative;
+}
 .carousel__swiper .swiper-slide {
   background-position: center;
   background-size: cover;
 }
 .carousel__swiper .swiper-slide img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
+  display: block;
 }
 @media (min-width: 120em) {
-  .carousel__swiper .swiper-slide-next,
-  .carousel__swiper .swiper-slide-prev {
-    width: 60.375rem;
+  .carousel__swiper .swiper-slide img {
+    width: 80.625rem;
   }
 }
 @media (min-width: 20em) and (max-width: 120em) {
-  .carousel__swiper .swiper-slide-next,
-  .carousel__swiper .swiper-slide-prev {
-    width: clamp( 15.625rem , 6.675rem  +  44.75vw , 60.375rem );
+  .carousel__swiper .swiper-slide img {
+    width: clamp( 18.125rem , 5.625rem  +  62.5vw , 80.625rem );
   }
 }
 @media (max-width: 20em) {
-  .carousel__swiper .swiper-slide-next,
-  .carousel__swiper .swiper-slide-prev {
-    width: 15.625rem;
+  .carousel__swiper .swiper-slide img {
+    width: 18.125rem;
   }
 }
 @media (min-width: 120em) {
-  .carousel__swiper .swiper-slide-next,
-  .carousel__swiper .swiper-slide-prev {
-    height: 36.25rem;
-  }
-}
-@media (min-width: 20em) and (max-width: 120em) {
-  .carousel__swiper .swiper-slide-next,
-  .carousel__swiper .swiper-slide-prev {
-    height: clamp( 12.5rem , 7.75rem  +  23.75vw , 36.25rem );
-  }
-}
-@media (max-width: 20em) {
-  .carousel__swiper .swiper-slide-next,
-  .carousel__swiper .swiper-slide-prev {
-    height: 12.5rem;
-  }
-}
-@media (min-width: 120em) {
-  .carousel__swiper .swiper-slide-active {
+  .carousel__swiper .swiper-slide img {
     height: 48.5rem;
   }
 }
 @media (min-width: 20em) and (max-width: 120em) {
-  .carousel__swiper .swiper-slide-active {
+  .carousel__swiper .swiper-slide img {
     height: clamp( 15rem , 8.3rem  +  33.5vw , 48.5rem );
   }
 }
 @media (max-width: 20em) {
-  .carousel__swiper .swiper-slide-active {
+  .carousel__swiper .swiper-slide img {
     height: 15rem;
   }
 }
@@ -959,19 +959,17 @@ h2 {
   padding: 0;
 }
 .tabs {
-  padding: 10rem 0 2.8125rem;
   background-image: url("../img/tabs.jpg");
   background-size: cover;
   background-position: center;
   color: #ffffff;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   row-gap: 4.375rem;
   position: relative;
 }
 @media (min-width: 61.99875em) {
   .tabs {
-    padding: 1.25rem 0 4.6875rem;
     min-height: 100vh;
     row-gap: 7.5rem;
   }
@@ -979,6 +977,7 @@ h2 {
 .tabs::before {
   content: "";
   position: absolute;
+  z-index: 3;
   background-image: url("../img/water-logo.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -1016,32 +1015,59 @@ h2 {
   }
 }
 .tabs__content {
-  flex: 1 1 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.tabs__body {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+.tabs__image {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tabs__wrapper {
+  min-height: 100vh;
+  padding: 6.25rem 0.9375rem 11.875rem;
   display: flex;
   align-items: flex-end;
 }
-.tabs__body {
-  padding: 0 0.9375rem;
+@media (min-width: 61.99875em) {
+  .tabs__wrapper {
+    padding: 6.25rem 0.9375rem 18.125rem;
+  }
+}
+.tabs__wrapper-item {
+  max-width: 36.9375rem;
 }
 @media (min-width: 82.5em) {
-  .tabs__body {
+  .tabs__wrapper-item {
     position: relative;
     left: 50%;
-    transform: translateX(-41.25rem);
+    transform: translateX(-100%);
   }
 }
 .tabs__title {
   margin-bottom: 1.125rem;
 }
-.tabs__text {
-  max-width: 36.9375rem;
-  font-weight: 300;
-}
 .tabs__navigation {
   padding: 0 0.625rem;
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  position: relative;
+  position: absolute;
+  left: 0;
+  bottom: 4.6875rem;
+  z-index: 2;
 }
 @media (min-width: 82.5em) {
   .tabs__navigation {
@@ -1225,4 +1251,9 @@ h2 {
 
 .swiper-button-lock {
   display: none !important;
+}
+
+.swiper-3d .swiper-slide {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
