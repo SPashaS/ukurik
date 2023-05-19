@@ -106,6 +106,10 @@ h6 {
   font-size: inherit;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @media (min-width: 20em) and (max-width: 62em) {
   body {
     font-size: clamp( 1rem , 0.7619047619rem  +  1.1904761905vw , 1.5rem );
@@ -315,14 +319,23 @@ h2 {
 }
 @media (max-width: 61.99875em) {
   .icon-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem;
+    margin-right: -0.625rem;
+  }
+}
+@media (max-width: 61.99875em) {
+  .icon-menu__burger {
     display: block;
     position: relative;
-    width: 30px;
-    height: 18px;
+    width: 1.875rem;
+    height: 1.125rem;
     cursor: pointer;
     z-index: 101;
   }
-  .icon-menu span, .icon-menu::before, .icon-menu::after {
+  .icon-menu__burger span, .icon-menu__burger::before, .icon-menu__burger::after {
     content: "";
     transition: all 0.3s ease 0s;
     left: 0px;
@@ -331,23 +344,23 @@ h2 {
     height: 2px;
     background-color: #ffffff;
   }
-  .icon-menu::before {
+  .icon-menu__burger::before {
     top: 0px;
   }
-  .icon-menu::after {
+  .icon-menu__burger::after {
     bottom: 0px;
   }
-  .icon-menu span {
+  .icon-menu__burger span {
     top: calc(50% - 1px);
   }
-  .menu-open .icon-menu span {
+  .menu-open .icon-menu__burger span {
     transform: scale(0);
   }
-  .menu-open .icon-menu::before {
+  .menu-open .icon-menu__burger::before {
     transform: rotate(-45deg);
     top: calc(50% - 1px);
   }
-  .menu-open .icon-menu::after {
+  .menu-open .icon-menu__burger::after {
     transform: rotate(45deg);
     bottom: calc(50% - 1px);
   }
@@ -431,6 +444,14 @@ h2 {
 .contacts-item__content {
   line-height: 1.21;
 }
+.contacts-item a {
+  transition: all 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .contacts-item a:hover {
+    opacity: 0.7;
+  }
+}
 
 .main-block {
   padding-top: 14.0625rem;
@@ -438,6 +459,7 @@ h2 {
   background-image: url("../img/main.jpg");
   background-size: cover;
   background-position: top center;
+  min-height: 25rem;
   height: 100vh;
 }
 .main-block__container {
@@ -506,8 +528,9 @@ h2 {
   content: "";
   position: absolute;
   background-image: url("../img/water-solo-1.svg");
-  background-size: cover;
-  width: 27.2517321016%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 35.2193995381%;
   height: 100%;
   right: 0;
   top: 0;
@@ -558,6 +581,21 @@ h2 {
 .carousel__slider {
   margin: 0 auto;
 }
+@media (min-width: 120em) {
+  .carousel__slider {
+    width: 80.625rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 120em) {
+  .carousel__slider {
+    width: clamp( 18.125rem , 5.625rem  +  62.5vw , 80.625rem );
+  }
+}
+@media (max-width: 20em) {
+  .carousel__slider {
+    width: 18.125rem;
+  }
+}
 .carousel__swiper .swiper-slide {
   background-position: center;
   background-size: cover;
@@ -569,10 +607,6 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.carousel__swiper .swiper-slide-next,
-.carousel__swiper .swiper-slide-prev {
-  transform: scale(0.8);
 }
 @media (min-width: 120em) {
   .carousel__swiper .swiper-slide-next,
@@ -612,21 +646,6 @@ h2 {
 }
 @media (min-width: 120em) {
   .carousel__swiper .swiper-slide-active {
-    width: 80.625rem;
-  }
-}
-@media (min-width: 20em) and (max-width: 120em) {
-  .carousel__swiper .swiper-slide-active {
-    width: clamp( 18.125rem , 5.625rem  +  62.5vw , 80.625rem );
-  }
-}
-@media (max-width: 20em) {
-  .carousel__swiper .swiper-slide-active {
-    width: 18.125rem;
-  }
-}
-@media (min-width: 120em) {
-  .carousel__swiper .swiper-slide-active {
     height: 48.5rem;
   }
 }
@@ -642,7 +661,6 @@ h2 {
 }
 .carousel__slide {
   overflow: hidden;
-  margin: 0 -0.9375rem;
 }
 .carousel__slide img {
   width: 100%;
@@ -802,6 +820,27 @@ h2 {
 }
 .monument__image {
   margin: 0 -0.9375rem;
+  position: relative;
+}
+.monument__image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+}
+.monument__image::after {
+  content: "";
+  position: absolute;
+  background-image: url("../img/water-solo-2.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 36.2586605081%;
+  height: 100%;
+  left: 0;
+  top: 6.7%;
 }
 @media (min-width: 61.99875em) {
   .monument__image {
@@ -860,10 +899,38 @@ h2 {
   background-image: url("../img/water-logo.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  width: 21.9791666667%;
-  padding-bottom: 63.981042654%;
   top: 1.25rem;
   right: 1.875rem;
+}
+@media (min-width: 120em) {
+  .tabs::before {
+    width: 26.375rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 120em) {
+  .tabs::before {
+    width: clamp( 9.4375rem , 6.05rem  +  16.9375vw , 26.375rem );
+  }
+}
+@media (max-width: 20em) {
+  .tabs::before {
+    width: 9.4375rem;
+  }
+}
+@media (min-width: 120em) {
+  .tabs::before {
+    height: 16.905rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 120em) {
+  .tabs::before {
+    height: clamp( 6.4375rem , 4.344rem  +  10.4675vw , 16.905rem );
+  }
+}
+@media (max-width: 20em) {
+  .tabs::before {
+    height: 6.4375rem;
+  }
 }
 .tabs__content {
   flex: 1 1 100%;
