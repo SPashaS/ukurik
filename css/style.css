@@ -628,29 +628,6 @@ h2 {
     padding-bottom: 5.9375rem;
   }
 }
-.carousel__container {
-  position: relative;
-}
-@media (min-width: 120em) {
-  .carousel__container {
-    height: 48.5rem;
-  }
-}
-@media (min-width: 20em) and (max-width: 120em) {
-  .carousel__container {
-    height: clamp( 15rem , 8.3rem  +  33.5vw , 48.5rem );
-  }
-}
-@media (max-width: 20em) {
-  .carousel__container {
-    height: 15rem;
-  }
-}
-@media (min-width: 82.5em) {
-  .carousel__container {
-    max-width: 105.375rem;
-  }
-}
 .carousel__slider {
   margin: 0 auto;
 }
@@ -732,71 +709,42 @@ h2 {
   width: 100%;
 }
 .carousel__navigation {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  padding: 0 0.3125rem;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  column-gap: 3.125rem;
-}
-@media (min-width: 29.99875em) {
-  .carousel__navigation {
-    padding: 0 1.25rem;
-  }
-}
-@media (min-width: 47.99875em) {
-  .carousel__navigation {
-    padding: 0 2.5rem;
-  }
+  display: none;
 }
 @media (min-width: 61.99875em) {
   .carousel__navigation {
-    padding: 0 4.375rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 94.25rem;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(-50%, -50%);
+    column-gap: 3.125rem;
   }
 }
-@media (min-width: 82.5em) {
+@media (min-width: 61.99875em) and (min-width: 120em) {
   .carousel__navigation {
-    padding: 0 6.4375rem;
+    width: 94.25rem;
+  }
+}
+@media (min-width: 61.99875em) and (min-width: 62em) and (max-width: 120em) {
+  .carousel__navigation {
+    width: clamp( 56.25rem , 15.6293103448rem  +  65.5172413793vw , 94.25rem );
   }
 }
 .carousel__btn {
-  width: 2.1875rem;
-  height: 2.1875rem;
+  width: 4.5625rem;
+  height: 4.5625rem;
   border-radius: 50%;
   background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media (min-width: 47.99875em) {
-  .carousel__btn {
-    width: 4.5625rem;
-    height: 4.5625rem;
-  }
-}
-@media (min-width: 61.99875em) {
-  .carousel__btn {
-    border: 0;
-  }
-}
-.carousel__btn img {
-  width: 0.625rem;
-}
-@media (min-width: 47.99875em) {
-  .carousel__btn img {
-    width: 1.0625rem;
-  }
+  background-image: url("../img/icons/arrow.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.0625rem;
 }
 .carousel__btn_next {
   transform: rotate(180deg);
-}
-.carousel__btn.swiper-button-disabled {
-  background-color: #c5c5c5;
-  opacity: 0.5;
-  pointer-events: none;
 }
 
 .map {
@@ -1253,7 +1201,19 @@ h2 {
   display: none !important;
 }
 
-.swiper-3d .swiper-slide {
+.swiper-3d .swiper-cube-shadow,
+.swiper-3d .swiper-slide,
+.swiper-3d .swiper-slide-shadow,
+.swiper-3d .swiper-slide-shadow-bottom,
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right,
+.swiper-3d .swiper-slide-shadow-top,
+.swiper-3d .swiper-wrapper {
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+
+.swiper-3d, .swiper-3d.swiper-css-mode .swiper-wrapper {
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
 }

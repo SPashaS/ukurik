@@ -3448,15 +3448,14 @@
           modules: [ie, oe],
           speed: 800,
           effect: "creative",
-          watchSlidesProgress: !0,
           slidesPerView: "auto",
           centeredSlides: !0,
           loop: !0,
           grabCursor: !0,
           slideToClickedSlide: !0,
           creativeEffect: {
-            prev: { shadow: !1, translate: ["-45%", 40, -500] },
-            next: { shadow: !1, translate: ["45%", 40, -500] },
+            prev: { shadow: !1, translate: ["-45%", 0, -500] },
+            next: { shadow: !1, translate: ["45%", 0, -500] },
           },
           navigation: {
             nextEl: ".carousel__navigation .carousel__btn_next",
